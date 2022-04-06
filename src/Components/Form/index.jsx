@@ -38,6 +38,7 @@ const Form = () => {
     profile.socialLink[2].url = formArray.instagram;
     profile.socialLink[3].url = formArray.github;
     navigate("/");
+    console.log(formArray.profileImg);
   };
 
   const handelChange = (e) => {
@@ -48,7 +49,7 @@ const Form = () => {
     if (e.target.name == "profileImg") {
       setFormArray({
         ...formArray,
-        [formArray.profileImg]: URL.createObjectURL(e.target.files[0]),
+        [e.target.name]: URL.createObjectURL(e.target.files[0]),
       });
     }
   };
