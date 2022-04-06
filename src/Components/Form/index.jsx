@@ -10,7 +10,7 @@ const Form = () => {
   const navigate = useNavigate();
   const data = {
     name: profile.info.name,
-    profileImg: "12",
+    profileImg: profile.image,
     email: profile.professoanlLink[1].url,
     profession: profile.info.designation,
     website: profile.info.website,
@@ -28,6 +28,7 @@ const Form = () => {
     profile.info.name = formArray.name;
     profile.info.designation = formArray.profession;
     profile.info.website = formArray.website;
+    profile.info.image = formArray.profileImg;
     profile.description[0].desc = formArray.about;
     profile.description[1].desc = formArray.intrest;
     profile.professoanlLink[0].url = formArray.linkedin;
@@ -44,6 +45,12 @@ const Form = () => {
       ...formArray,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name == "profileImg") {
+      setFormArray({
+        ...formArray,
+        [formArray.profileImg]: URL.createObjectURL(e.target.files[0]),
+      });
+    }
   };
   return (
     <form>
