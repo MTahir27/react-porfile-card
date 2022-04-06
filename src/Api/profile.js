@@ -40,4 +40,9 @@ let profile = {
   ],
 };
 
+if (!JSON.parse(localStorage.getItem("profile"))) {
+  localStorage.setItem("profile", JSON.stringify(profile));
+}
+profile = JSON.parse(localStorage.getItem("profile"));
+
 export default profile;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
 import TextAreaField from "../TextAreaFiled";
 import CustomButton from "../CustomButton";
@@ -10,7 +10,7 @@ const Form = () => {
   const navigate = useNavigate();
   const data = {
     name: profile.info.name,
-    profileImg: profile.image,
+    profileImg: profile.info.image,
     email: profile.professoanlLink[1].url,
     profession: profile.info.designation,
     website: profile.info.website,
@@ -38,7 +38,7 @@ const Form = () => {
     profile.socialLink[2].url = formArray.instagram;
     profile.socialLink[3].url = formArray.github;
     navigate("/");
-    console.log(formArray.profileImg);
+    localStorage.setItem("profile", JSON.stringify(profile));
   };
 
   const handelChange = (e) => {
@@ -46,7 +46,7 @@ const Form = () => {
       ...formArray,
       [e.target.name]: e.target.value,
     });
-    if (e.target.name == "profileImg") {
+    if (e.target.name === "profileImg") {
       setFormArray({
         ...formArray,
         [e.target.name]: URL.createObjectURL(e.target.files[0]),
