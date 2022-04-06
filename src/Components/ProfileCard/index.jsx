@@ -7,6 +7,9 @@ import CustomButton from "../CustomButton";
 import "./style.css";
 
 const ProfileCard = ({ profile }) => {
+  const print = () => {
+    window.print();
+  };
   return (
     <>
       <div className="cardContainer">
@@ -14,7 +17,7 @@ const ProfileCard = ({ profile }) => {
           <Link to="/edit">
             <CustomButton title="Edit Card" />
           </Link>
-          <CustomButton title="Print" />
+          <CustomButton title="Print" onClick={print} />
         </div>
         <section className="profileCard">
           {profile.info.image && (
