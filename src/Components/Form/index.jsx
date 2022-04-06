@@ -25,8 +25,18 @@ const Form = () => {
   const [formArray, setFormArray] = useState(data);
   onsubmit = (e) => {
     e.preventDefault();
-    // navigate("/");
-    console.log(formArray);
+    profile.info.name = formArray.name;
+    profile.info.designation = formArray.profession;
+    profile.info.website = formArray.website;
+    profile.description[0].desc = formArray.about;
+    profile.description[1].desc = formArray.intrest;
+    profile.professoanlLink[0].url = formArray.linkedin;
+    profile.professoanlLink[1].url = formArray.email;
+    profile.socialLink[0].url = formArray.twitter;
+    profile.socialLink[1].url = formArray.facebook;
+    profile.socialLink[2].url = formArray.instagram;
+    profile.socialLink[3].url = formArray.github;
+    navigate("/");
   };
 
   const handelChange = (e) => {
