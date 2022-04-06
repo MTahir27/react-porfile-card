@@ -14,7 +14,7 @@ const ProfileCard = ({ profile }) => {
           <Link to="/edit">
             <CustomButton title="Edit Card" />
           </Link>
-          <CustomButton title="Print" onclick="print" />
+          <CustomButton title="Print" />
         </div>
         <section className="profileCard">
           {profile.info.image && (

@@ -5,7 +5,7 @@ const TextAreaField = ({ label, ...otherTextAreaProps }) => {
   return (
     <div>
       {label && <label htmlFor={otherTextAreaProps.id}>{label}</label>}
-      <textarea rows="5"></textarea>
+      <textarea rows="5" {...otherTextAreaProps}></textarea>
     </div>
   );
 };
