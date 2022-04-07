@@ -12,7 +12,7 @@ const ProfileCard = ({ profile }) => {
   };
   return (
     <>
-      <div className="cardContainer">
+      <div className="cardContainer" id="certificate">
         <div className="btn-group printHide" style={{ paddingTop: 0 }}>
           <Link to="/edit">
             <CustomButton title="Edit Card" />
