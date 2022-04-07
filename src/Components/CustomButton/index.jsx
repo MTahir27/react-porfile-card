@@ -8,7 +8,7 @@ const CustomButton = ({ title, ...otherButtonProps }) => {
     <>
       {title && (
         <button
-          className={title === "email" ? "whiteBtn" : "blueBtn"}
+          className={title === "email" ? "whiteBtn" : `blueBtn`}
           {...otherButtonProps}
         >
           <span className="imgIcon">

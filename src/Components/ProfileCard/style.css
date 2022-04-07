@@ -25,3 +25,9 @@
     padding: 15px;
   }
 }
+
+@media print {
+  .printHide {
+    display: none;
+  }
+}
