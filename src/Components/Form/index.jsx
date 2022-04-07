@@ -47,10 +47,17 @@ const Form = () => {
       [e.target.name]: e.target.value,
     });
     if (e.target.name === "profileImg") {
-      setFormArray({
-        ...formArray,
-        [e.target.name]: URL.createObjectURL(e.target.files[0]),
-      });
+      if (typeof FileReader != "undefined") {
+        let fileData = e.target.files[0];
+        let reader = new FileReader();
+        reader.onload = function (e) {
+          setFormArray({
+            ...formArray,
+            profileImg: e.target.result,
+          });
+        };
+        reader.readAsDataURL(fileData);
+      }
     }
   };
   return (
